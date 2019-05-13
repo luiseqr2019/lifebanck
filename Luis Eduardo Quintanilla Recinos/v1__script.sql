@@ -45,23 +45,6 @@ create table authentication_1.dpro_detalle_product
   
 );
 
---insert
-
-INSERT INTO authentication_1.cli_client_information (cli_code, cli_user, cli_password, cli_name, cli_last_name, cli_email, cli_count_session_fail, cli_status, cli_create_user, cli_create_date, cli_modify_user, cli_modify_date) VALUES(1, 'luquintanilla', '5588e2ca30a48b0b025f31cd35ebb948cfc7d372052ccbdd66234a75c88f65ca609be96bd4a7d8c61ead9633ba498f0a38aa47369ed3fe0969e09e5eafa2a54c', 'luis', 'quintanilla', 'luis@gmail.com', 5, 'A', 'luquintanilla', '2019-11-05', NULL, NULL);
-
-INSERT INTO authentication_1.acc_accound_client (acc_cod, acc_cli_code, acc_accound_number, acc_accound_limit, acc_amount) VALUES(1, 1, '123456896', 2000.00, 500.00);
-
-INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(1, 1, 'loan');
-INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(2, 1, 'creditcard');
-INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(3, 1, 'prestamo');
-
-INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(2, 1, '12316516511', 'Prestamo');
-INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(3, 2, '46516513', 'CreditCard');
-INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(4, 3, '87646516', 'Personal');
-
-INSERT INTO authentication_1.trac_client_transaction (trac_cod, trac_pro_code, trac_acc_accound_cod, trac_account_origin, trac_account_destination, trac_description, trac_fecha_transaction, trac_amount) VALUES(1, 1, 1, '845313132132', '7984651351313', 'tranferencia cuentas propias', '2019-05-12 00:00:00.000', 25.00);
-commit;
-
 create table authentication_1.acc_accound_client(
 	acc_cod serial primary key,
 	acc_cli_code int null,
@@ -84,3 +67,21 @@ create table authentication_1.trac_client_transaction(
 	CONSTRAINT tra_acc_cod_fkey FOREIGN KEY (trac_acc_accound_cod) REFERENCES authentication_1.acc_accound_client(acc_cod),
 	CONSTRAINT tra_pro_code_fkey FOREIGN KEY (trac_pro_code) REFERENCES authentication_1.pro_product(pro_code)
 );
+
+
+--insert
+
+INSERT INTO authentication_1.cli_client_information (cli_code, cli_user, cli_password, cli_name, cli_last_name, cli_email, cli_count_session_fail, cli_status, cli_create_user, cli_create_date, cli_modify_user, cli_modify_date) VALUES(1, 'luquintanilla', '5588e2ca30a48b0b025f31cd35ebb948cfc7d372052ccbdd66234a75c88f65ca609be96bd4a7d8c61ead9633ba498f0a38aa47369ed3fe0969e09e5eafa2a54c', 'luis', 'quintanilla', 'luis@gmail.com', 5, 'A', 'luquintanilla', '2019-11-05', NULL, NULL);
+
+INSERT INTO authentication_1.acc_accound_client (acc_cod, acc_cli_code, acc_accound_number, acc_accound_limit, acc_amount) VALUES(1, 1, '123456896', 2000.00, 500.00);
+
+INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(1, 1, 'loan');
+INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(2, 1, 'creditcard');
+INSERT INTO authentication_1.pro_product (pro_code, pro_user, pro_type_product) VALUES(3, 1, 'prestamo');
+
+INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(2, 1, '12316516511', 'Prestamo');
+INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(3, 2, '46516513', 'CreditCard');
+INSERT INTO authentication_1.dpro_detalle_product (dpro_code, dpro_pro_code, dpro_id, dpro_name) VALUES(4, 3, '87646516', 'Personal');
+
+INSERT INTO authentication_1.trac_client_transaction (trac_cod, trac_pro_code, trac_acc_accound_cod, trac_account_origin, trac_account_destination, trac_description, trac_fecha_transaction, trac_amount) VALUES(1, 1, 1, '845313132132', '7984651351313', 'tranferencia cuentas propias', '2019-05-12 00:00:00.000', 25.00);
+commit;
